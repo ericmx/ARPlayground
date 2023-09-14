@@ -1,0 +1,35 @@
+{
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "resources" : [
+    {
+      "filename" : "IMG_0099.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_0229.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_0245.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_0607.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_0724.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_0929.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_1255.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_1644.arreferenceimage"
+    },
+    {
+      "filename" : "IMG_2264.arreferenceimage"
+    }
+  ]
+}

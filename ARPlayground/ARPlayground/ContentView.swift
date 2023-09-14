@@ -9,30 +9,37 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    @ObservedObject var arViewModel : ARViewModel = ARViewModel()
     var body: some View {
-        ARViewContainer().edgesIgnoringSafeArea(.all)
+        ZStack {
+            ARViewContainer(arViewModel: arViewModel).edgesIgnoringSafeArea(.all)
+            VStack {
+                Text("Is Image Recognized?")
+                switch arViewModel.imageRecognizedVar {
+                case false: Text("No").foregroundColor(.red)
+                case true: Text("Yes").foregroundColor(.green)
+                }
+            }.font(.title)
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 20).fill(.regularMaterial))
+        }
     }
 }
 
 struct ARViewContainer: UIViewRepresentable {
+    var arViewModel: ARViewModel
     
     func makeUIView(context: Context) -> ARView {
-        
-        let arView = ARView(frame: .zero)
-        
-        // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Experience.loadBox()
-        
-        // Add the box anchor to the scene
-        arView.scene.anchors.append(boxAnchor)
-        
-        return arView
-        
+        arViewModel.startSessionDelegate()
+        return arViewModel.arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
 }
+//    func updateUIView(_ uiView: ARView, context: Context) {}
+    
+//}
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
